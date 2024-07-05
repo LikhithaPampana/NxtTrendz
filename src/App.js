@@ -21,7 +21,11 @@ class App extends Component {
     this.setState(prevState => ({cartList: [...prevState.cartList, product]}))
   }
 
-  deleteCartItem = () => {}
+  deleteCartItem = id => {
+    this.setState(prevState => ({
+      cartList: prevState.cartList.filter(item => item.id !== id),
+    }))
+  }
 
   render() {
     const {cartList} = this.state
